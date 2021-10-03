@@ -15,8 +15,8 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: ${{ github.action_path }}/InnoSetup6/ISCC.exe ${{ inputs.path-to-script }} /O./
-      shell: bash
+    - run: ${{ github.action_path }}\InnoSetup6\ISCC.exe ${{ inputs.path-to-script }} /O.\
+      shell: pwsh
 
     - uses: actions/upload-artifact@v2
       with:
