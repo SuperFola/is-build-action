@@ -19,6 +19,7 @@ runs:
       shell: pwsh
 
     - run: mv mysetup.exe ${{ inputs.artifact-name }}
+      shell: pwsh
 
     - uses: actions/upload-artifact@v2
       with:
