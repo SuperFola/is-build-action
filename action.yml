@@ -18,7 +18,9 @@ runs:
     - run: ${{ github.action_path }}\InnoSetup6\ISCC.exe ${{ inputs.path-to-script }} /O.\
       shell: pwsh
 
+    - run: mv mysetup.exe ${{ inputs.artifact-name }}
+
     - uses: actions/upload-artifact@v2
       with:
         name: ${{ inputs.artifact-name }}
-        path: mysetup.exe
+        path: ${{ inputs.artifact-name }}
