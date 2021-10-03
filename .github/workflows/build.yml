@@ -1,0 +1,10 @@
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: SuperFola/is-build-action@v1
+        with:
+          path-to-script: 'example.iss'
