@@ -1,0 +1,24 @@
+name: 'InnoSetup Build'
+description: 'Build an InnoSetup Script'
+author: 'Alexandre Plateau'
+
+inputs:
+  path-to-script:
+    description: 'Path to the InnoSetup Script'
+    required: true
+    default: 'main.iss'
+  artifact-name:
+    description: 'Name of the artifact to upload'
+    required: false
+    default: 'mysetup.exe'
+
+runs:
+  using: "composite"
+  steps:
+    - run: ${{ github.action_path }}/InnoSetup6/ISCC.exe ${{ inputs.path-to-script }} /O./
+      shell: bash
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: ${{ inputs.artifact-name }}
+        path: mysetup.exe
